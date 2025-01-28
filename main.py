@@ -97,6 +97,16 @@ def get_longest_shortest_words(text):
     shortest = min(words, key=len)
     return longest, shortest
 
+
+def visualize_char_freq(char_freq):
+    chars, freqs = zip(*sorted(char_freq.items(), key=lambda x: x[1], reverse=True))
+    plt.bar(chars, freqs)
+    plt.title("Character Frequency")
+    plt.xlabel("Characters")
+    plt.ylabel("Frequency")
+    plt.show()
+
+
 def export_analysis(text):
     char_freq = count_char_freq(text)
     word_freq = count_word_freq(text)
